@@ -1,5 +1,6 @@
 import React from 'react';
+import Card from '../components/Card.js';
 
-const List = () => (<h1>List</h1>);
+const List = () => <Card/>
 
 export default List;
