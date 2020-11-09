@@ -5,4 +5,14 @@ import List from './containers/List'
 
 import 'bootswatch/dist/cyborg/bootstrap.min.css';
 
-ReactDOM.render(<List/>, document.getElementById('root'))
+const App = () => {
+    return (
+        <main className="bg-dark">
+            <div className="container">
+                <List/>
+            </div>
+        </main>
+    )
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'))
