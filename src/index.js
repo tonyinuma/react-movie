@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import List from './containers/List'
 
-import 'bootswatch/dist/cyborg/bootstrap.min.css';
+import 'bootswatch/dist/solar/bootstrap.min.css';
 
 const App = () => {
     return (
