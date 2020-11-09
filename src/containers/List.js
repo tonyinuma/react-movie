@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from '../components/Card'
 
 class List extends React.Component {
 
@@ -18,9 +19,7 @@ class List extends React.Component {
     
     render(){
         return this.state.data.map(movie => {
-            return <div>
-                <h1>{movie.Title}</h1>
-            </div>
+            return <Card movie={movie}/>
         });
     }
 }
