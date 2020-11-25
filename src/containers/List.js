@@ -97,8 +97,8 @@ class List extends React.Component {
 
                 <div className="row">
                     {
-                        this.state.data.map(movie => {
-                            return <Card movie={movie}/>
+                        this.state.data.map((movie,i) => {
+                            return <Card movie={movie} key={i}/>
                         })
                     }
                 </div>
