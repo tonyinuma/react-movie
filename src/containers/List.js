@@ -21,11 +21,20 @@ class List extends React.Component {
         this.setState({data: resJSON.Search});
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
+
         e.preventDefault();
+
+        this.setState({error: ''});
         if (!this.state.searchTerm) {
             return this.setState({error: 'please write a valid text'});
         }
+
+        const res = await fetch(`${API}&s=${this.state.searchTerm}`);
+        const data = await res.json();
+
+        this.setState({data: data.Search});
+
     }
 
     render() {
@@ -80,7 +89,7 @@ class List extends React.Component {
                 </nav>
 
                 <div className="d-flex flex-row-reverse">
-                    <p className="text-white">{ (this.state.error) ? this.state.error : '' }</p>
+                    <p className="text-white">{(this.state.error) ? this.state.error : ''}</p>
                 </div>
 
                 <div className="row">
