@@ -25,7 +25,6 @@ class List extends React.Component {
 
         e.preventDefault();
 
-        this.setState({error: ''});
         if (!this.state.searchTerm) {
             return this.setState({error: 'please write a valid text'});
         }
@@ -33,8 +32,11 @@ class List extends React.Component {
         const res = await fetch(`${API}&s=${this.state.searchTerm}`);
         const data = await res.json();
 
-        this.setState({data: data.Search});
+        if (!data.Search) {
+            return this.setState({error: 'There are not results'});
+        }
 
+        this.setState({data: data.Search, error: '', searchTerm: ''});
     }
 
     render() {
@@ -80,6 +82,7 @@ class List extends React.Component {
                                 placeholder="Search"
                                 onChange={e => this.setState({searchTerm: e.target.value})}
                                 autoFocus
+                                value={this.state.searchTerm}
                             />
                             <button className="btn btn-secondary my-2 my-sm-0" type="submit">
                                 Search
