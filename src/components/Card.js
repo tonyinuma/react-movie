@@ -6,7 +6,7 @@ const Card = ({movie}) => {
             <div className="card">
                 <img className="card-img-top" src={movie.Poster} alt={movie.Title}/>
                 <div className="card-body">
-                    <h4 style={{"color":"white"}}>{movie.Title}</h4>
+                    <h4 style={{"color": "white"}}>{movie.Title}</h4>
                     <p>{movie.Type} - {movie.Year}</p>
                 </div>
             </div>

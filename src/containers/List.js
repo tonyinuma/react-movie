@@ -1,23 +1,25 @@
 import React from 'react';
 import Card from '../components/Card'
 
+const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=5d7ca768';
+
 class List extends React.Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
             data: []
         }
     }
 
-    async componentDidMount(){
-        const res = await fetch('../../assets/data.json');
+    async componentDidMount() {
+        const res = await fetch(`${API}&s=avengers`);
         const resJSON = await res.json();
 
-        this.setState({data:resJSON});
+        this.setState({data: resJSON.Search});
     }
-    
-    render(){
+
+    render() {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
@@ -33,23 +35,23 @@ class List extends React.Component {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span className="navbar-toggler-icon" />
+                        <span className="navbar-toggler-icon"/>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarColor02">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
                                 <a className="nav-link" href="#">
-                                News
+                                    News
                                 </a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">
-                                Pricing
+                                    Pricing
                                 </a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">
-                                About
+                                    About
                                 </a>
                             </li>
                         </ul>
