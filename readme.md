@@ -2,4 +2,4 @@
 
 This my practice project in react js. I develop a web for movies from 0.
 
-![Screenshot](media/movie-app.png)
+![Screenshot](media/home-app.png)
