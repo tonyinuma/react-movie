@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Card from '../components/Card'
 
 const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=5d7ca768';
@@ -8,7 +8,9 @@ class List extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            data: [],
+            searchTerm: '',
+            error: ''
         }
     }
 
@@ -19,9 +21,16 @@ class List extends React.Component {
         this.setState({data: resJSON.Search});
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        if (!this.state.searchTerm) {
+            return this.setState({error: 'please write a valid text'});
+        }
+    }
+
     render() {
         return (
-            <div>
+            <Fragment>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
                     <a className="navbar-brand" href="#">
                         CINEMA ID
@@ -55,11 +64,13 @@ class List extends React.Component {
                                 </a>
                             </li>
                         </ul>
-                        <form className="form-inline my-2 my-lg-0">
+                        <form className="form-inline my-2 my-lg-0" onSubmit={e => this.handleSubmit(e)}>
                             <input
                                 className="form-control mr-sm-2"
                                 type="text"
                                 placeholder="Search"
+                                onChange={e => this.setState({searchTerm: e.target.value})}
+                                autoFocus
                             />
                             <button className="btn btn-secondary my-2 my-sm-0" type="submit">
                                 Search
@@ -68,6 +79,10 @@ class List extends React.Component {
                     </div>
                 </nav>
 
+                <div className="d-flex flex-row-reverse">
+                    <p className="text-white">{ (this.state.error) ? this.state.error : '' }</p>
+                </div>
+
                 <div className="row">
                     {
                         this.state.data.map(movie => {
@@ -75,7 +90,7 @@ class List extends React.Component {
                         })
                     }
                 </div>
-            </div>
+            </Fragment>
         )
     }
 }
