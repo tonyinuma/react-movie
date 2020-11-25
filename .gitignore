@@ -2,3 +2,4 @@
 /node_modules
 # Distribution directories
 dist/
+.env

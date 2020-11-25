@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import Card from '../components/Card'
 
-const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=5d7ca768';
+const API = process.env.API;
 
 class List extends React.Component {
 
