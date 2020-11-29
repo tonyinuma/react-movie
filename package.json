@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "predeploy": "webpack --mode production",
+    "deploy": "gh-pages -d dist",
     "start": "webpack serve --port 4000",
     "production": "webpack --mode production"
   },
