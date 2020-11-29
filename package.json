@@ -2,7 +2,7 @@
   "name": "react-movie",
   "version": "1.0.0",
   "description": "",
-  "homepage":"http://tonyinuma.github.io/react-movie",
+  "homepage":"https://tonyinuma.github.io/react-movie",
   "main": "index.js",
   "scripts": {
     "predeploy": "webpack --mode production",
